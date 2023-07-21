@@ -1,0 +1,63 @@
+$primary-color-palette: (
+    "light": #C1C8FF,
+    "medium": #4A5AE9,
+    "dark": #000F92,
+);
+body {
+    background: var(--gradient-landing);
+    background-size: cover;
+    background-repeat: none;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+nav {
+    position: sticky;
+    top: 0;
+    height: 120px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
+    z-index: 10;
+}
+
+.primary-text {
+    color: map-get($primary-color-palette, "medium");
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    ul {
+        margin-left: auto;
+        display: flex;
+        gap: 64px;
+        li a {
+            color: var(--backgrounds-white);
+            text-decoration: none;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background: var(--backgrounds-white);
+                color: var(--backgrounds-dark);
+                text-decoration: underline;
+            }
+            
+            &.active {
+                color: map-get($primary-color-palette, "medium");
+                text-decoration: underline;
+            }
+        }
+    }
+}
+

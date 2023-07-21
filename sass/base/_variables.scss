@@ -1,0 +1,40 @@
+$primary-font-family: "apertura", sans-serif;
+$secondary-font-family: 'Work Sans', sans-serif;
+
+// Colour pallete
+$terracota-colour: #e07a5f;
+$manhatan-colour: #f2cc8f;
+$acapulco-colour: #81b29a;
+$dark-blue-colour: #3d405b;
+$merino-colour: #f4f1de;
+$tundora-colour: #454545;
+$secondary-black: #696969;
+$light-gray: #b4b4b4;
+
+
+$primary-color-palette: (
+    "light": #C1C8FF,
+    "medium": #4A5AE9,
+    "dark": #000F92,
+);
+
+$secondary-color-palette: (
+    "light": #FFD5BF,
+    "medium": #FF5500,
+    "dark": #9F3500,
+);
+$accent-color-palette: (
+    "light": #FDFF9C,
+    "medium": #FFE500,
+    "dark": #A79600,
+);
+$backgrounds: (
+    "white": #fff,
+    "light": #F3F3F3,
+    "dark": #24252C
+);
+
+
+:root {
+    --gradient-landing: linear-gradient(223deg, rgba(253, 253, 255, 0.50) 0%, rgba(193, 199, 244, 0.50) 57.81%, rgba(255, 212, 191, 0.50) 82.93%);
+}
