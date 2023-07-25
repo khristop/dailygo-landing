@@ -1,19 +1,7 @@
-$primary-color-palette: (
-    "light": #C1C8FF,
-    "medium": #4A5AE9,
-    "dark": #000F92,
-);
-body {
-    background: var(--gradient-landing);
-    background-size: cover;
-    background-repeat: none;
-}
-
 .wrapper {
     max-width: 1200px;
     margin: 0 auto;
 }
-
 
 nav {
     position: sticky;
@@ -24,8 +12,41 @@ nav {
     z-index: 10;
 }
 
+.heading-2 {
+    font-family: $primary-font-family;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px; 
+}
+
+.heading-4 {
+    font-family: $primary-font-family;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 24px; 
+}
+
+p {
+    /* Body 1 */
+    font-family: $secondary-font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+}
+
+.text-center {
+    text-align: center;
+}
+
 .primary-text {
     color: map-get($primary-color-palette, "medium");
+}
+
+.primary-text-dark {
+    color: map-get($primary-color-palette, "dark");
 }
 
 .links {

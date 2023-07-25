@@ -52,11 +52,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-body {
-  background: var(--gradient-landing);
-  background-size: cover;
-  background-repeat: none; }
-
 .wrapper {
   max-width: 1200px;
   margin: 0 auto; }
@@ -69,8 +64,36 @@ nav {
   box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
   z-index: 10; }
 
+.heading-2 {
+  font-family: "Apertura", sans-serif;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px; }
+
+.heading-4 {
+  font-family: "Apertura", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; }
+
+p {
+  /* Body 1 */
+  font-family: "Work Sans", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px; }
+
+.text-center {
+  text-align: center; }
+
 .primary-text {
   color: #4A5AE9; }
+
+.primary-text-dark {
+  color: #000F92; }
 
 .links {
   display: flex;
@@ -103,4 +126,13 @@ nav {
   --secondary-font-family: $secondary-font-family; }
 
 body {
-  font-family: "Work Sans", sans-serif; }
+  font-family: "Work Sans", sans-serif;
+  background: var(--gradient-landing);
+  background-size: cover;
+  background-repeat: none;
+  overflow-x: hidden; }
+
+.svg-paths {
+  position: absolute;
+  width: 0;
+  height: 0; }

@@ -14,4 +14,14 @@
 
 body {
     font-family: $secondary-font-family;
+    background: var(--gradient-landing);
+    background-size: cover;
+    background-repeat: none;
+    overflow-x: hidden;
+}
+
+.svg-paths{
+    position: absolute;
+    width: 0;
+    height: 0;
 }
