@@ -299,7 +299,7 @@ body {
         width: auto; } }
 
 .video__wrapper {
-  min-height: 500px;
+  min-height: 50vmin;
   border-radius: 16px;
   background-color: white;
   position: relative; }
@@ -318,8 +318,11 @@ body {
   top: 50%;
   right: 50%;
   background: url("/img/play.svg") no-repeat center center;
-  height: 250px;
-  width: 160px;
+  background-size: contain;
+  height: 10vmax;
+  width: 6vmax;
+  max-height: 250px;
+  max-width: 160px;
   content: '';
   transform: translateX(50%) translateY(-50%); }
 
