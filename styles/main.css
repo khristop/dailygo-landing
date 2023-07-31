@@ -417,6 +417,8 @@ body {
     height: 32px;
     border-radius: 50%;
     background-color: lightgrey;
+    border: none;
+    outline: none;
     cursor: pointer; }
     .slider__control.active {
       background-color: white; }
@@ -435,7 +437,8 @@ body {
   position: relative;
   flex-shrink: 0;
   flex-grow: 0;
-  flex-basis: 400px; }
+  flex-basis: calc(100vw - 64px);
+  max-width: 400px; }
   .event__header {
     display: flex;
     justify-content: space-between;
