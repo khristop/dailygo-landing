@@ -1,1 +1,116 @@
 @import "../base/base";
+
+body {
+    background: #c1c8ff4f;
+    color: #24252C;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 36px;
+    color: map-get($map: $primary-color-palette, $key: 'medium');
+}
+
+.team-brief {
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    text-align: center;
+}
+
+header {
+    margin: 32px 0;
+    text-align: center;
+}
+
+@include breakpoint($breakpoint-sm) {
+    header, .team-brief {
+        text-align: left;
+    }
+}
+
+.team__members {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    
+    @include breakpoint($breakpoint-sm) {
+        gap: 32px;
+    }
+}
+
+.team-member {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas: 
+        "photo"
+        "name"
+        "role"
+        "description"
+        "links";
+    column-gap: 36px;
+    row-gap: 12px;
+    text-align: center;
+    justify-items: center;
+
+    @include breakpoint($breakpoint-sm) {
+        grid-template-columns: 200px 1fr;
+        grid-template-areas: 
+            "photo name"
+            "photo role"
+            "photo description"
+            "photo links";
+        text-align: left;
+        justify-items: start;
+        row-gap: 16px;
+    }
+
+    &__photo {
+        grid-area: photo;
+        max-width: 200px;
+    }
+
+    &__name {
+        margin-top: 16px;
+        font-size: 1.5rem; // 24px
+        font-weight: 700;
+        line-height: 1.5rem; // 24px
+        font-family: $primary-font-family;
+    }
+
+    &__role {
+        grid-area: role;
+        font-size: 1.125rem; // 18px
+        font-weight: 400;
+        line-height: 1.1875rem; // 19px
+    }
+
+    &__description {
+        grid-area: description;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.1875rem; // 19px
+    }
+
+    &__links {
+        grid-area: links;
+        font-size: 1rem; // 14px
+        font-weight: medium;
+        line-height: 1.0625em; // 17px
+        text-decoration: none;
+
+        a {
+            text-decoration: none;
+            color: #24252C;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+}
+
+.team-picture {
+    margin-top: 64px;
+    min-height: 500px;
+}
+

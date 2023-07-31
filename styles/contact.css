@@ -228,6 +228,20 @@ p {
         color: #4A5AE9;
         text-decoration: underline; }
 
+footer {
+  border-top: 3px solid #F50;
+  padding: 32px;
+  text-align: center; }
+  footer p {
+    color: #9F3500;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; }
+
+main {
+  overflow-x: hidden; }
+
 :root {
   --primary-font-family: $primary-font-family;
   --secondary-font-family: $secondary-font-family;

@@ -11,9 +11,9 @@
         <div class="wrapper links">
             <a href="/"><img src="img/logo.svg" alt="logo" class="logo" height="48"></a>
             <ul>
-                <li><a href="/index" class="active">Home</a></li>
-                <li><a href="/team">Meet the team</a></li>
-                <li><a href="/contact">Contact</a></li>
+                <li><a href="/index.html" class="active">Home</a></li>
+                <li><a href="/team.html">Meet the team</a></li>
+                <li><a href="/contact.html">Contact</a></li>
             </ul>
             <div class="hamburger">
                 <div class="hamburger__line"></div>
@@ -172,51 +172,62 @@
 
     <script src="/js/main.js"></script>
     <script>
-        // script for horizontal slider, calculate and render the controls using the class slider__control and active and listen for window resize
-        const slider = document.querySelector('.slider');
-        const sliderList = document.querySelector('.slider__list');
-        const sliderControls = document.querySelector('.slider__controls');
-        const sliderItems = document.querySelectorAll('.event');
-        const sliderItemWidth = sliderItems[0].offsetWidth;
-        const sliderItemsLength = sliderItems.length;
-        const sliderListWidth = sliderItemWidth * sliderItemsLength;
-        let activeSlide = 0;
-        let sliderControlsHTML = '';
-
-        sliderList.style.width = `${sliderListWidth}px`;
-        
-        sliderItems.forEach((item, index) => {
-            if (index === 0) {
-                sliderControlsHTML += `<button class="slider__control active" data-slide="${index}"></button>`;
-            } else {
-                sliderControlsHTML += `<button class="slider__control" data-slide="${index}"></button>`;
+        window.onload = function() {
+            // Add sticky class and background to the navbar when scrolling
+            window.onscroll = function() {
+                var navbar = document.querySelector("nav");
+                if (window.scrollY > 400) {
+                    navbar.classList.add("sticky");
+                    navbar.style.background = "#fff";
+                } else {
+                    navbar.classList.remove("sticky");
+                    navbar.style.background = "none";
+                }
             }
-        });
 
-        sliderControls.innerHTML = sliderControlsHTML;
+            // script for horizontal slider, calculate and render the controls using the class slider__control and active and listen for window resize
+            const slider = document.querySelector('.slider');
+                const sliderList = document.querySelector('.slider__list');
+                const sliderControls = document.querySelector('.slider__controls');
+                const sliderItems = document.querySelectorAll('.event');
+                const sliderItemWidth = sliderItems[0].offsetWidth;
+                const sliderItemsLength = sliderItems.length;
+                const sliderListWidth = sliderItemWidth * sliderItemsLength;
+                let activeSlide = 0;
+                let sliderControlsHTML = '';
 
-        const sliderControlsButtons = document.querySelectorAll('.slider__control');
-
-        sliderControlsButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                sliderControlsButtons.forEach(button => {
-                    button.classList.remove('active');
+                sliderList.style.width = `${sliderListWidth}px`;
+                
+                sliderItems.forEach((item, index) => {
+                    if (index === 0) {
+                        sliderControlsHTML += `<button class="slider__control active" data-slide="${index}"></button>`;
+                    } else {
+                        sliderControlsHTML += `<button class="slider__control" data-slide="${index}"></button>`;
+                    }
                 });
-                button.classList.add('active');
-                activeSlide = button.dataset.slide;
-                sliderList.style.transform = `translateX(-${activeSlide * sliderItemWidth}px)`;
-            });
-        });
 
-        window.addEventListener('resize', () => {
-            const sliderItemWidth = sliderItems[0].offsetWidth;
-            const sliderListWidth = sliderItemWidth * sliderItemsLength;
-            sliderList.style.width = `${sliderListWidth}px`;
-            sliderList.style.transform = `translateX(-${activeSlide * sliderItemWidth}px)`;
-        });
+                sliderControls.innerHTML = sliderControlsHTML;
 
+                const sliderControlsButtons = document.querySelectorAll('.slider__control');
 
+                sliderControlsButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        sliderControlsButtons.forEach(button => {
+                            button.classList.remove('active');
+                        });
+                        button.classList.add('active');
+                        activeSlide = button.dataset.slide;
+                        sliderList.style.transform = `translateX(-${activeSlide * sliderItemWidth}px)`;
+                    });
+                });
 
+                window.addEventListener('resize', () => {
+                    const sliderItemWidth = sliderItems[0].offsetWidth;
+                    const sliderListWidth = sliderItemWidth * sliderItemsLength;
+                    sliderList.style.width = `${sliderListWidth}px`;
+                    sliderList.style.transform = `translateX(-${activeSlide * sliderItemWidth}px)`;
+                });
+        }
     </script>
 </body>
 </html>

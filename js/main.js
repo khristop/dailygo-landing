@@ -1,17 +1,5 @@
 
 window.onload = function() {
-    // Add sticky class and background to the navbar when scrolling
-    window.onscroll = function() {
-        var navbar = document.querySelector("nav");
-        if (window.scrollY > 400) {
-            navbar.classList.add("sticky");
-            navbar.style.background = "#fff";
-        } else {
-            navbar.classList.remove("sticky");
-            navbar.style.background = "none";
-        }
-    }
-
     // Script for open and close the menu for mobiles
     const hamburger = document.querySelector('.hamburger');
     const nav = document.querySelector('nav');
