@@ -1,40 +1,169 @@
 .wrapper {
     max-width: 1200px;
+    padding: 0 32px;
     margin: 0 auto;
 }
 
+.no-scroll {
+    overflow: hidden;
+    @include breakpoint($breakpoint-sm) {
+        overflow: auto;
+        overflow-x: hidden;
+    }
+}
+
 nav {
-    position: sticky;
-    top: 0;
-    height: 120px;
+    height: 80px;   
     background-color: rgb(255, 255, 255);
-    box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
     z-index: 10;
 }
 
+nav:not(.sticky) .logo{
+    display: none;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    transform: rotate(0deg);
+    transform-origin: center;
+    margin-left: auto;
+    margin-top: 16px;
+    margin-bottom: 16px;
+
+    @include breakpoint($breakpoint-sm) {
+        display: none;
+        position: absolute;
+    }
+
+    .hamburger__line {
+        width: 40px;
+        height: 4px;
+        background-color: gray;
+        margin: 4px;
+        transition: all 0.3s ease-in-out;
+        &:nth-child(1) {
+            transform: rotate(0deg) translate(0, 0);
+        }
+        &:nth-child(2) {
+            transform: rotate(0deg) translate(0, 0);
+        }
+        &:nth-child(3) {
+            transform: rotate(0deg) translate(0, 0);
+        }
+    }
+}
+
+nav.open {
+    .links {
+        background-color: white;
+        @include breakpoint($breakpoint-sm) {
+            background-color: transparent;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: white;
+            z-index: 9;
+            gap: 32px;
+            transition: all 0.3s ease-in-out;
+
+            @include breakpoint($breakpoint-sm) {
+                position: relative;
+                top: 0;
+                left: 0;
+                width: auto;
+                height: auto;
+                background-color: transparent;
+                padding: 0;
+                flex-direction: row;
+                gap: 64px;
+            }
+
+            li {
+                width: 100%;
+                text-align: center;
+
+                @include breakpoint($breakpoint-sm) {
+                    width: auto;
+                    text-align: left;
+                }
+            }
+        }
+    }
+
+    .hamburger {
+        transform: rotate(90deg);
+        .hamburger__line {
+            &:nth-child(1) {
+                transform: rotate(45deg) translate(10px, 7px);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: rotate(-45deg) translate(10px, -7px);
+            }
+        }
+    }
+}
+
+
+.sticky {
+    position: sticky;
+    top: 0;
+    box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
+    animation: slide-down 0.5s ease-in-out;
+}
+
+@keyframes slide-down {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
 .heading-2 {
     font-family: $primary-font-family;
-    font-size: 44px;
+    font-size: 2.75rem; // 44px
     font-style: normal;
     font-weight: 700;
-    line-height: 44px; 
+    line-height: 2.75rem; // 44px 
 }
 
 .heading-4 {
     font-family: $primary-font-family;
-    font-size: 24px;
+    font-size: 1.5rem; // 24px 
     font-style: normal;
     font-weight: 700;
-    line-height: 24px; 
+    line-height: 1.5rem; // 24px  
 }
 
 p {
     /* Body 1 */
     font-family: $secondary-font-family;
-    font-size: 16px;
+    font-size: 1rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 19px;
+    line-height: 1.1875em; // 19px
 }
 
 .text-center {
@@ -55,12 +184,22 @@ p {
     height: 100%;
     ul {
         margin-left: auto;
-        display: flex;
-        gap: 64px;
+        gap: 16px;
+        display: none;
+        
+        @include breakpoint($breakpoint-sm) {
+            gap: 32px;
+            display: flex;
+        }
+        
+        @include breakpoint($breakpoint-md) {
+            gap: 64px;
+        }
+
         li a {
             color: var(--backgrounds-white);
             text-decoration: none;
-            font-size: 24px;
+            font-size: 1.5rem; // 24px
             font-style: normal;
             font-weight: 400;
             line-height: normal;

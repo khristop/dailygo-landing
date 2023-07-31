@@ -38,3 +38,12 @@ $backgrounds: (
 :root {
     --gradient-landing: linear-gradient(223deg, rgba(253, 253, 255, 0.50) 0%, rgba(193, 199, 244, 0.50) 57.81%, rgba(255, 212, 191, 0.50) 82.93%);
 }
+
+// Breakpoints
+$breakpoint-xs: 375px;
+$breakpoint-s: 650px;
+$breakpoint-sm: 768px;
+$breakpoint-md: 960px;
+$breakpoint-lg: 1280px;
+$breakpoint-xl: 1920px;
+

@@ -54,37 +54,137 @@ table {
 
 .wrapper {
   max-width: 1200px;
+  padding: 0 32px;
   margin: 0 auto; }
 
+.no-scroll {
+  overflow: hidden; }
+  @media (min-width: 768px) {
+    .no-scroll {
+      overflow: auto;
+      overflow-x: hidden; } }
+
 nav {
+  height: 80px;
+  background-color: white;
+  z-index: 10; }
+
+nav:not(.sticky) .logo {
+  display: none; }
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  width: 80px;
+  cursor: pointer;
+  z-index: 10;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(0deg);
+  transform-origin: center;
+  margin-left: auto;
+  margin-top: 16px;
+  margin-bottom: 16px; }
+  @media (min-width: 768px) {
+    .hamburger {
+      display: none;
+      position: absolute; } }
+  .hamburger .hamburger__line {
+    width: 40px;
+    height: 4px;
+    background-color: gray;
+    margin: 4px;
+    transition: all 0.3s ease-in-out; }
+    .hamburger .hamburger__line:nth-child(1) {
+      transform: rotate(0deg) translate(0, 0); }
+    .hamburger .hamburger__line:nth-child(2) {
+      transform: rotate(0deg) translate(0, 0); }
+    .hamburger .hamburger__line:nth-child(3) {
+      transform: rotate(0deg) translate(0, 0); }
+
+nav.open .links {
+  background-color: white; }
+  @media (min-width: 768px) {
+    nav.open .links {
+      background-color: transparent; } }
+  nav.open .links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background-color: white;
+    z-index: 9;
+    gap: 32px;
+    transition: all 0.3s ease-in-out; }
+    @media (min-width: 768px) {
+      nav.open .links ul {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+        flex-direction: row;
+        gap: 64px; } }
+    nav.open .links ul li {
+      width: 100%;
+      text-align: center; }
+      @media (min-width: 768px) {
+        nav.open .links ul li {
+          width: auto;
+          text-align: left; } }
+
+nav.open .hamburger {
+  transform: rotate(90deg); }
+  nav.open .hamburger .hamburger__line:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 7px); }
+  nav.open .hamburger .hamburger__line:nth-child(2) {
+    opacity: 0; }
+  nav.open .hamburger .hamburger__line:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -7px); }
+
+.sticky {
   position: sticky;
   top: 0;
-  height: 120px;
-  background-color: white;
   box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
-  z-index: 10; }
+  animation: slide-down 0.5s ease-in-out; }
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%); }
+  100% {
+    transform: translateY(0); } }
 
 .heading-2 {
   font-family: "Apertura", sans-serif;
-  font-size: 44px;
+  font-size: 2.75rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 44px; }
+  line-height: 2.75rem; }
 
 .heading-4 {
   font-family: "Apertura", sans-serif;
-  font-size: 24px;
+  font-size: 1.5rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; }
+  line-height: 1.5rem; }
 
 p {
   /* Body 1 */
   font-family: "Work Sans", sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 19px; }
+  line-height: 1.1875em; }
 
 .text-center {
   text-align: center; }
@@ -101,12 +201,19 @@ p {
   height: 100%; }
   .links ul {
     margin-left: auto;
-    display: flex;
-    gap: 64px; }
+    gap: 16px;
+    display: none; }
+    @media (min-width: 768px) {
+      .links ul {
+        gap: 32px;
+        display: flex; } }
+    @media (min-width: 960px) {
+      .links ul {
+        gap: 64px; } }
     .links ul li a {
       color: var(--backgrounds-white);
       text-decoration: none;
-      font-size: 24px;
+      font-size: 1.5rem;
       font-style: normal;
       font-weight: 400;
       line-height: normal;
@@ -123,14 +230,17 @@ p {
 
 :root {
   --primary-font-family: $primary-font-family;
-  --secondary-font-family: $secondary-font-family; }
+  --secondary-font-family: $secondary-font-family;
+  font-size: 14px; }
+  @media (min-width: 960px) {
+    :root {
+      font-size: 16px; } }
 
 body {
   font-family: "Work Sans", sans-serif;
   background: var(--gradient-landing);
   background-size: cover;
-  background-repeat: none;
-  overflow-x: hidden; }
+  background-repeat: none; }
 
 .svg-paths {
   position: absolute;

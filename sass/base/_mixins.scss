@@ -1,0 +1,12 @@
+@mixin breakpoint($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
+
+
+// set font size relative to the viewport width
+@mixin font-size($size) {
+    font-size: calc($size / 16 * 1vw);
+}
+
