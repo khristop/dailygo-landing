@@ -1,10 +1,8 @@
 
 window.onload = function() {
-    // Add sticky class and background to the navbar when scrolling, pageYOffset is deprecated
+    // Add sticky class and background to the navbar when scrolling
     window.onscroll = function() {
         var navbar = document.querySelector("nav");
-        var sticky = navbar.offsetTop;
-        console.log(window.scrollY, sticky)
         if (window.scrollY > 400) {
             navbar.classList.add("sticky");
             navbar.style.background = "#fff";
