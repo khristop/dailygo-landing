@@ -64,6 +64,9 @@ table {
       overflow: auto;
       overflow-x: hidden; } }
 
+.visible {
+  display: initial !important; }
+
 nav {
   height: 80px;
   background-color: white;
