@@ -266,15 +266,15 @@ body {
 
 .wellcome-message {
   display: grid;
-  grid-template-areas: 'logo' 'showcase' 'message';
+  grid-template-areas: 'logo' 'showcase' 'message' 'proposal';
   grid-template-columns: 1fr;
   row-gap: 16px;
   margin: 4rem auto 6rem auto; }
   @media (min-width: 768px) {
     .wellcome-message {
-      grid-template-areas: 'logo showcase' 'message showcase';
+      grid-template-areas: 'logo showcase' 'message showcase' 'proposal proposal';
       grid-template-columns: 1fr 1fr;
-      grid-template-rows: 200px auto;
+      grid-template-rows: 200px auto auto;
       row-gap: 36px;
       min-height: 520px;
       margin: 4rem auto 6rem auto; } }
@@ -287,6 +287,27 @@ body {
     @media (min-width: 960px) {
       .wellcome-message .logo {
         width: auto; } }
+  .wellcome-message a {
+    grid-area: proposal;
+    justify-self: center;
+    cursor: pointer;
+    height: 40px;
+    border-radius: 1.5rem;
+    border: none;
+    outline: none;
+    padding: 0 48px;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: normal;
+    color: white;
+    background: #F50;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+    display: flex;
+    align-items: center; }
+    .wellcome-message a:hover {
+      background: #df4a00; }
   .wellcome-message h4 {
     grid-area: message;
     max-width: 500px;
@@ -316,10 +337,22 @@ body {
         width: auto; } }
 
 .video__wrapper {
-  min-height: 50vmin;
+  width: 100%;
+  /* Set the desired width */
+  padding-top: 56.25%;
+  /* 16:9 aspect ratio (9 / 16 * 100) */
+  position: relative;
+  /* To ensure the video is positioned correctly */
+  overflow: hidden;
   border-radius: 16px;
   background-color: white;
   position: relative; }
+  .video__wrapper iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0; }
 
 .video header {
   font-size: 2.75rem;
@@ -422,8 +455,14 @@ body {
   margin: 32px 0; }
   .slider__list {
     display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     gap: 32px;
     width: auto; }
+    @media (min-width: 960px) {
+      .slider__list {
+        flex-direction: row; } }
   .slider__controls {
     display: flex;
     justify-content: center;
@@ -454,8 +493,10 @@ body {
   position: relative;
   flex-shrink: 0;
   flex-grow: 0;
-  flex-basis: calc(100vw - 64px);
   max-width: 400px; }
+  @media (min-width: 960px) {
+    .event {
+      flex-basis: calc(100vw - 64px); } }
   .event__header {
     display: flex;
     justify-content: space-between;
