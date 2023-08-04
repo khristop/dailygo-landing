@@ -488,7 +488,7 @@ body {
   align-items: flex-start;
   gap: 8px;
   border-radius: 16px;
-  background: url("/img/active-event-bg.svg") no-repeat center center, #FFF;
+  background: url("https://bewear.s3.ca-central-1.amazonaws.com/images/active-event-bg.svg") no-repeat center center, #FFF;
   box-shadow: 4px 4px 12px 0px rgba(0, 15, 146, 0.17);
   position: relative;
   flex-shrink: 0;
