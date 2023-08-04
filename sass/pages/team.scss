@@ -112,6 +112,15 @@ header {
 
 .team-picture {
     margin-top: 64px;
-    min-height: 500px;
+    picture {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        display: inline-flex;
+
+        img {
+            width: 100%;
+        }
+    }
 }
 

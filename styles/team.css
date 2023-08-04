@@ -345,5 +345,11 @@ header {
       gap: 8px; }
 
 .team-picture {
-  margin-top: 64px;
-  min-height: 500px; }
+  margin-top: 64px; }
+  .team-picture picture {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    display: inline-flex; }
+    .team-picture picture img {
+      width: 100%; }
