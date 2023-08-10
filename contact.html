@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DailyGo TEAM</title>
     <link rel="stylesheet" href="styles/contact.css">
+    <link rel="icon" type="image/x-icon" href="https://d3ar31zhvgezv2.cloudfront.net/images/favicon.png">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -39,7 +40,7 @@
                 <header>
                     <h1>Let’s <br> work <br> together</h1>
                 </header>
-                <form action="https://formspree.io/f/moqyjzqk" method="POST" class="contact-form">
+                <form action="https://formspree.io/f/xwkdlowz" method="POST" class="contact-form" id="contact-us-form">
                     <div class="contact-form__group">
                         <label for="name">Name</label>
                         <input type="text" name="name" id="name" placeholder="Your name" required>
@@ -53,6 +54,7 @@
                         <textarea name="message" id="message" cols="30" rows="4" placeholder="Your message" required></textarea>
                     </div>
                     <button type="submit" class="btn">Send</button>
+                    <p id="my-form-status"></p>
                 </form>
             </section>
 
@@ -65,21 +67,21 @@
                 <h3>You can reach us directly </h3>
                 <div class="direct-contacts">
                     <a href="https://www.linkedin.com/in/dhananya-kiatsongsak/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/dada.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/dada@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Dhananya Kiatsongsak
                         </div>
                     </a>
                     <a href="https://www.linkedin.com/in/renasakata/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/rena.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/rena@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Rena Sakata
                         </div>
                     </a>
                     <a href="https://www.linkedin.com/in/JL7/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/jay.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/jay@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Jungho Lee
@@ -87,7 +89,7 @@
                     </a>
                     <!-- ava -->
                     <a href="https://www.linkedin.com/in/thanaratk/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/ava.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/ava@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Thanarat (Ava) Krisanayuth
@@ -96,7 +98,7 @@
 
                     <!-- flavia -->
                     <a href="https://www.linkedin.com/in/flachonso/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/flavia.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/flavia@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Flavia Chonso
@@ -105,7 +107,7 @@
 
                     <!-- kevin -->
                     <a href="https://www.linkedin.com/in/khristop/" target="_blank" class="linkedin__link">
-                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/kevin.png" alt="linkedin">
+                        <img src="https://d3ar31zhvgezv2.cloudfront.net/images/team/kevin@0.1x.png" alt="linkedin">
                         <div class="link">
                             <img src="https://d3ar31zhvgezv2.cloudfront.net/images/linkedin.svg" alt="linkedin">
                             Kevin Garcia
@@ -124,5 +126,39 @@
     </main>
 
     <script src="/js/main.js"></script>
+    <script>
+        var form = document.getElementById("contact-us-form");
+        async function handleSubmit(event) {
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            // create form data message
+            var data = new FormData(event.target);
+            data.set('message', "Name: " + data.get('name') + "\nMessage: " + data.get('message'));
+            data.delete('name');
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                status.innerHTML = "Thanks for your submission!";
+                form.reset()
+                } else {
+                response.json().then(data => {
+                    if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
+                    } else {
+                    status.innerHTML = "Oops! There was a problem submitting your form"
+                    }
+                })
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form"
+            });
+        }
+        form.addEventListener("submit", handleSubmit)
+    </script>
 </body>
 </html>

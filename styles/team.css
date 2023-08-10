@@ -313,6 +313,8 @@ header {
   .team-member__photo {
     grid-area: photo;
     max-width: 200px; }
+    .team-member__photo img {
+      width: 100%; }
   .team-member__name {
     margin-top: 16px;
     font-size: 1.5rem;
