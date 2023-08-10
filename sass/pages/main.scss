@@ -348,6 +348,7 @@
 
     &__content {
         display: flex;
+        width: 100%;
     }
 
     &__info {
@@ -363,7 +364,7 @@
     }
 
     &__name {
-        font-size: 1.125px; // 18px
+        font-size: 1.125rem; // 18px
         font-style: normal;
         font-weight: 700;
         line-height: 1.1875rem; // 19px
